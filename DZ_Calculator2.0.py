@@ -6,7 +6,7 @@ print("Результат сложения: %.f" % (sum_x + sum_y))
 print("Вычитание")
 diff_x = float(input("x = "))
 diff_y = float(input("у = "))
-print("Результат вычитания: %.2f" % (diff_x - diff_y))
+print("Результат вычитания: %.f" % (diff_x - diff_y))
 
 print("Умножение")
 multiply_x = float(input("x = "))
