@@ -10,10 +10,8 @@ def empty_function():
 
 
 def even_numbers(n):
-    list_generation = []
     for number in range(n + 1):
         if number % 2 == 0:
-            list_generation.append(number)
             yield number
 
 
