@@ -12,20 +12,18 @@ def calculate_average(grades):
     return sum(grades) / len(grades)
 
 
+def overall_gpa():
+    list_average_ball = []
+    for grades in list_students:
+        list_average_ball.append(calculate_average(grades["grades"]))
+
+    print(f"Общий средний балл всех студентов: {sum(list_average_ball) / len(list_students)}")
+
+
 for student in list_students:
     average_ball = calculate_average(student["grades"])
     print(f"""Студент: {student["name"]} 
 Средний балл: {average_ball}
 Статус: {"Успешен" if average_ball >= 75 else "Отстающий"}""")
-
-
-def overall_gpa():
-    len_student = 0
-    list_average_ball = []
-    for grades in list_students:
-        len_student += 1
-        list_average_ball.append(calculate_average(grades["grades"]))
-
-    print(f"Общий средний балл всех студентов: {sum(list_average_ball) / len_student}")
 
 overall_gpa()
