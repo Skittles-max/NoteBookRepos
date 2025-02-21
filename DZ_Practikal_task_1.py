@@ -26,7 +26,7 @@ def average_ball():
 def add_delete_student():
     name = input("Введите имя студента: ")
     grades_input = input("Введите список баллов через запятую: ")
-    grades = [ int(grade.strip()) for grade in grades_input.split(",")]
+    grades = [int(grade.strip()) for grade in grades_input.split(",")]
     new_student = {"name": name, "grades": grades}
     list_students.append(new_student)
     delete_name = input("Введите имя студента которого нужно удалить "
@@ -52,4 +52,3 @@ list_average_ball = []
 average_ball()
 add_delete_student()
 overall_gpa()
-
