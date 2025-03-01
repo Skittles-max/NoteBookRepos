@@ -11,6 +11,7 @@ def overall_gpa(list_balls):
 
 
 def average_ball(students):
+    list_average_ball = []
     for student in students:
         ball = calculate_average(student["grades"])
         name = student["name"]
@@ -49,7 +50,6 @@ list_students = [
     {"name": "Anna", "grades": [94, 93, 99, 91]},
     {"name": "Mahmud", "grades": [65, 85, 35, 44]}]
 
-list_average_ball = []
 average_ball(list_students)
 add_student()
 delete_students()
