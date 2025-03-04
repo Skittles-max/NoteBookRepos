@@ -4,26 +4,24 @@ def calculate_average(grades):
         return sum(grades) / len(grades)
     except ValueError:
         print("Пустой список")
-        pass
 
 
 def overall_gpa(list_balls):
-    list_average_balls = []
     for grades in list_balls:
-        list_average_balls.append(calculate_average(grades["grades"]))
-    print(f"Общий средний балл всех студентов: {sum(list_average_balls) / len(list_balls)}")
+        update_list_student.append(calculate_average(grades["grades"]))
+    print(f"Общий средний балл всех студентов: {sum(update_list_student) / len(list_balls)}")
 
 
 def average_ball(students):
-    list_student = []
     for student in students:
         ball = calculate_average(student["grades"])
         name = student["name"]
-        list_student.append({"name": name, "average ball": ball})
+        update_list_student.append({"name": name, "average ball": ball})
         print(f"""
 Студент: {student["name"]}
 Средний балл: {ball}
 Статус: {"Успешен" if ball >= 75 else "Отстающий"}""")
+    return update_list_student
 
 
 def add_student():
@@ -38,14 +36,13 @@ def add_student():
     list_students.append(new_student)
 
 
-def delete_students():
-    delete_name = input("Введите имя студента которого нужно удалить "
-                        "из списка, если таких нет то оставьте поле пустым: ")
+def delete_students(delete_name):
+    #delete_name = input("Введите имя студента которого нужно удалить "
+   #                     "из списка, если таких нет то оставьте поле пустым: ")
     if delete_name:
         for student in list_students:
             if student["name"] == delete_name:
                 list_students.remove(student)
-        pass
 
 
 list_students = [
@@ -56,6 +53,11 @@ list_students = [
     {"name": "Mahmud", "grades": [65, 85, 35, 44]}]
 
 add_student()
-delete_students()
-overall_gpa(list_students)
+update_list_student = average_ball(list_students)
+print(f'Обновленный список студентов {update_list_student}')
+overall_gpa(update_list_student)
+print(f"Общий средний балл всех студентов: {sum(update_list_student) / len(list_balls)}")
 average_ball(list_students)
+delete_name = input("Введите имя студента которого нужно удалить "
+                        "из списка, если таких нет то оставьте поле пустым: ")
+delete_students(delete_name)
